@@ -30,7 +30,7 @@ This repository demonstrates how to submit raw sequencing reads to NCBI SRA usin
 ```bash
 chmod 600 <path-to-aspera.openssh>
 ```
-## Preparing raw-data files
+## 3. Preparing raw-data files
 1. Create a new directory, preferably named after the temporary submission ID (e.g., ```SUB14915373```):
 ```bash
 mkdir SUB14915373
@@ -53,7 +53,7 @@ ascp -i /path/to/aspera.openssh -QT -v -k1 -d /path/to/SUB14915373 subasp@upload
 /path/to/SUB14915373 with the full path to your submission directory.
 your_email_w3RSBObO with the upload directory provided by NCBI.
 
-## Finalize submission
+## 4. Finalize submission
 once the files are uploaded, wait for 10 minutes for the upload to be shown on the NCBI submission portal click on the ```Request preload folder```, you should see folder having the raw fastq.gz files,
 select the folder and click on ``` Autofinish submission``` then ```Continue```. 
 
