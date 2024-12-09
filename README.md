@@ -8,14 +8,14 @@ This repository demonstrates how to submit raw sequencing reads to NCBI SRA usin
 2. Verify your credentials and click **Continue**.
 3. Complete all required information and metadata files.
 
-##2. Connect to Aspera-connect
+## 2. Connect to Aspera-connect
 
 1. Connect to your HPC cluster.
 2. Download the Aspera Connect client using the following command:
 
    ```bash
    wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.12.780_linux_x86_64.tar.gz
-   
+  ``` 
  3. Unzip the folder:
  ```bash
  tar -zxvf ibm-aspera-connect_4.2.12.780_linux_x86_64.tar.gz
@@ -36,7 +36,8 @@ mkdir SUB14915373
 cd SUB14915373
 ```
 2. Copy all the ```fastq.gz``` files to this directory
-```bash
+```ba
+sh
 cp /path/to/your/fastq/files/*.fastq.gz .
 ```
 3. Upload the files using the ```ascp``` command:
