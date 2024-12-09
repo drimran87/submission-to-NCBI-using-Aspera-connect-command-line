@@ -16,7 +16,8 @@ This repository demonstrates how to submit raw sequencing reads to NCBI SRA usin
    ```bash
    wget https://d3gcli72yxqn2z.cloudfront.net/downloads/connect/latest/bin/ibm-aspera-connect_4.2.12.780_linux_x86_64.tar.gz
   ``` 
- 3. Unzip the folder:
+3. Unzip the folder:
+ 
  ```bash
  tar -zxvf ibm-aspera-connect_4.2.12.780_linux_x86_64.tar.gz
 ```
