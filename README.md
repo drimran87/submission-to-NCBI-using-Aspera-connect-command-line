@@ -7,6 +7,7 @@ This repository demonstrates how to submit raw sequencing reads to NCBI SRA usin
 1. Go to the [SRA Submission Portal](https://submit.ncbi.nlm.nih.gov/subs/sra/) and click **New Submission**.
 2. Verify your credentials and click **Continue**.
 3. Complete all required information and metadata files.
+4. Select FTP aspera option for uploading raw sequencing files and click on ```Request preload folder```
 
 ## 2. Connect to Aspera-connect
 
@@ -42,11 +43,24 @@ sh
 cp /path/to/your/fastq/files/*.fastq.gz .
 ```
 3. Upload the files using the ```ascp``` command:
+We can make a small shell script to run this 
 ```bash
-ascp -i /path/to/aspera.openssh -QT -v -k1 -d /path/to/SUB14915373 subasp@upload.ncbi.nlm.nih.gov:uploads/your_email_w3RSBObO
+#!/bin/bash
+
+# This script uploads a directory to NCBI using Aspera Connect.
+
+ascp \
+  -i /proj/nobackup/stefan_bjorklund/ChIP-seq/P28359_conca_all/SUB15339249/aspera.openssh \
+  -QT \
+  --mode=send \
+  -l 100m \
+  -k 1 \
+  -d \
+  /proj/nobackup/stefan_bjorklund/ChIP-seq/P28359_conca_all/SUB15339249/ \
+  subasp@upload.ncbi.nlm.nih.gov:uploads/mimranbot_gmail.com_8B8tphBZ/
 
 ```
-
+where -i is the path to aspera key; availble from NCBI after selecting ```Request preload folder```
 ### Replace:
 
 <path-to-aspera.openssh> with the actual path to your aspera.openssh key.
@@ -54,6 +68,6 @@ ascp -i /path/to/aspera.openssh -QT -v -k1 -d /path/to/SUB14915373 subasp@upload
 your_email_w3RSBObO with the upload directory provided by NCBI.
 
 ## 4. Finalize submission
-once the files are uploaded, wait for 10 minutes for the upload to be shown on the NCBI submission portal click on the ```Request preload folder```, you should see folder having the raw fastq.gz files,
+once the files are uploaded, wait for 10 minutes for the upload to be shown on the NCBI submission portal click on the ```Select preload folder```, you should see folder having the raw fastq.gz files,
 select the folder and click on ``` Autofinish submission``` then ```Continue```. 
 
